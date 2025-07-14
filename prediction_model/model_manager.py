@@ -428,7 +428,7 @@ class XGBoostModel(BaseModel):
         self.feature_columns = hyperparams.get('feature_columns', self.DEFAULT_FEATURES)
         self.target_column = hyperparams.get('target_column', self.DEFAULT_TARGET)
         self.model = xgb.XGBClassifier(
-            n_estimators=hyperparams.get('n_estimators', 10),
+            n_estimators=hyperparams.get('n_estimators', 20),
             max_depth=hyperparams.get('max_depth', 5),
             learning_rate=hyperparams.get('learning_rate', 0.05),
             subsample=hyperparams.get('subsample', 0.8),

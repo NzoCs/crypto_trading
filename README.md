@@ -34,6 +34,7 @@ This project is organized into several modules, each with its own documentation.
 ---
 
 ## Table of Contents
+
 - [Project Overview](#project-overview)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
@@ -49,16 +50,20 @@ This project is organized into several modules, each with its own documentation.
 ---
 
 ## Project Overview
+
 A modular framework for analyzing information flow in crypto order-books, featuring event-driven backtesting, advanced data preprocessing, and support for custom trading strategies.
 
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone <repo-url>
    cd ifcob
    ```
+
 2. Install dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
@@ -66,6 +71,7 @@ A modular framework for analyzing information flow in crypto order-books, featur
 ## Quick Start
 
 ### Running a Backtest
+
 Use the automated backtesting script to quickly test strategies:
 
 ```bash
@@ -80,6 +86,7 @@ python scripts/run_backtest.py --strategy MyStrategy --data-index 1 --output-dir
 ```
 
 ### List Available Strategies
+
 ```bash
 python scripts/run_backtest.py --list-strategies
 ```
@@ -89,11 +96,13 @@ python scripts/run_backtest.py --list-strategies
 ## Project Structure
 
 ### Backtesting (`backtesting/`)
+
 The `backtesting` module evaluates trading strategies using historical order-book data.
 
 ![Backtesting Workflow](/images/backtesting_workflow.png)
 
 **Key Features:**
+
 - Event-driven simulation engine
 - Support for custom strategies and signals
 - Realistic transaction cost modeling
@@ -101,6 +110,7 @@ The `backtesting` module evaluates trading strategies using historical order-boo
 - Modular design for easy extension
 
 **Quick Start:**
+
 ```python
 from backtesting import Backtester, Strategy
 
@@ -125,6 +135,7 @@ See [`backtesting/README.md`](backtesting/README.md) for detailed documentation.
 The `preprocessing` module provides tools for converting raw cryptocurrency CSV data into a structured format suitable for feature extraction and analysis.
 
 **Key Features:**
+
 - Vectorized preprocessing with configurable block sizes
 - Automatic duplicate removal
 - Conversion to wide format for analysis
@@ -132,6 +143,7 @@ The `preprocessing` module provides tools for converting raw cryptocurrency CSV 
 - Importable module with clean API
 
 **Quick Start:**
+
 ```python
 from preprocessing import preprocess_crypto_data, preprocess_data_folder
 
@@ -143,6 +155,7 @@ results = preprocess_data_folder('data/raw/DATA_0', 'data/preprocessed/DATA_0')
 ```
 
 **Command Line Usage:**
+
 ```bash
 # Process all files in a folder
 python preprocessing/preprocess_script.py -i data/raw/DATA_0 -o data/preprocessed/DATA_0
@@ -160,6 +173,7 @@ See [`preprocessing/README.md`](preprocessing/README.md) for detailed documentat
 The `scripts/run_backtest.py` provides a comprehensive command-line interface for running backtests with automatic strategy discovery and data versioning.
 
 **Key Features:**
+
 - **Automatic Strategy Discovery**: Dynamically finds all strategies in the `strategies/` folder
 - **Data Index Management**: Mandatory `--data-index` parameter ensures explicit data versioning
 - **Automatic Feature Generation**: Checks for and generates precomputed features when needed
@@ -184,6 +198,7 @@ data/features/
 ```
 
 **Strategy Compatibility:**
+
 - ✅ **Supports `--data-index`**: Strategies with `data_index` parameter automatically use the specified dataset
 - ⚠️ **Hardcoded Paths**: Strategies without `data_index` parameter may use hardcoded paths and need manual updates
 - ℹ️ **No Precomputed Features**: Strategies that don't load external data work with any dataset
@@ -199,6 +214,7 @@ The backtesting script automatically handles precomputed features:
 5. **Error Handling**: Provides clear error messages and manual generation commands if automatic generation fails
 
 **Feature Generation Options:**
+
 - `--auto-generate-features`: Generate features automatically without prompting (non-interactive mode)
 - `--force-feature-check`: Check for features even for strategies that may not need them
 - `--ignore-feature-errors`: Continue with backtesting even if feature generation fails
@@ -206,6 +222,7 @@ The backtesting script automatically handles precomputed features:
 #### Usage Examples
 
 **Basic Usage:**
+
 ```bash
 # Required: Always specify data index
 python scripts/run_backtest.py --strategy MyStrategy --data-index 1
@@ -215,6 +232,7 @@ python scripts/run_backtest.py --strategy Strategy1 --strategy Strategy2 --data-
 ```
 
 **Automatic Feature Generation:**
+
 ```bash
 # Non-interactive mode (auto-generates features without prompting)
 python scripts/run_backtest.py --strategy Mateo2StartStrategy --data-index 2 --auto-generate-features
@@ -227,6 +245,7 @@ python scripts/run_backtest.py --strategy MyStrategy --data-index 1 --ignore-fea
 ```
 
 **Advanced Configuration:**
+
 ```bash
 # Custom parameters
 python scripts/run_backtest.py \
@@ -253,6 +272,7 @@ python scripts/run_backtest.py \
 ```
 
 **Performance Analysis:**
+
 ```bash
 # Profile execution
 python scripts/run_backtest.py --strategy MyStrategy --data-index 1 --profile
@@ -329,6 +349,7 @@ class MyStrategy(Strategy):
 ### Strategy Discovery
 
 The automated script discovers strategies by:
+
 1. Scanning all `.py` files in the `strategies/` folder
 2. Finding classes that inherit from `Strategy`
 3. Checking for `data_index` parameter support
@@ -365,10 +386,13 @@ class MyMLStrategy(Strategy):
 ---
 
 ## Contributing
+
 Contributions are welcome! Please open issues or submit pull requests for improvements or bug fixes.
 
 ## License
+
 This project is licensed under the terms of the LICENSE file in this repository.
 
 ## Contact
+
 For questions or collaboration, please contact the project maintainer.
