@@ -1,0 +1,66 @@
+{
+  "model": "xgboost",
+  "hyperparameters": {
+    "objective": "binary:logistic",
+    "colsample_bytree": 0.8,
+    "enable_categorical": false,
+    "eval_metric": "logloss",
+    "learning_rate": 0.05,
+    "max_depth": 5,
+    "n_estimators": 20,
+    "n_jobs": -1,
+    "random_state": 42,
+    "subsample": 0.8,
+    "use_label_encoder": false,
+    "feature_columns": [
+      "slope-bid-5-levels",
+      "slope-ask-5-levels",
+      "avg-250ms-of-slope-ask-5-levels",
+      "avg-250ms-of-slope-bid-5-levels",
+      "avg-250ms-of-V-bid-5-levels",
+      "avg-250ms-of-V-ask-5-levels",
+      "avg-250ms-of-liquidity-ratio-5-levels"
+    ],
+    "target_column": "avg-10ms-of-mid-price-itincreases-after-200ms-with-threshold-5"
+  },
+  "performance": {
+    "accuracy": 0.8266379968587174,
+    "report": {
+      "0": {
+        "precision": 0.9677317514783004,
+        "recall": 0.8482037794261683,
+        "f1-score": 0.9040339980194833,
+        "support": 1460010.0
+      },
+      "1": {
+        "precision": 0.06447895516654777,
+        "recall": 0.27002899165606,
+        "f1-score": 0.1041002906630047,
+        "support": 56568.0
+      },
+      "accuracy": 0.8266379968587174,
+      "macro avg": {
+        "precision": 0.516105353322424,
+        "recall": 0.5591163855411141,
+        "f1-score": 0.504067144341244,
+        "support": 1516578.0
+      },
+      "weighted avg": {
+        "precision": 0.934040636229521,
+        "recall": 0.8266379968587174,
+        "f1-score": 0.8741966603040862,
+        "support": 1516578.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1238386,
+        221624
+      ],
+      [
+        41293,
+        15275
+      ]
+    ]
+  }
+}

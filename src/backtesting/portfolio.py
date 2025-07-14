@@ -76,25 +76,38 @@ class Portfolio:
     def get_position(self, coin: Coin) -> float:
         """Get current position for a specific coin"""
         return self.positions.get(coin, 0.0)
-    
-    def can_execute_trade(self, coin_from, coin_to, amount, fees_graph):
+
+    def can_execute_trade(self, coin_from: Coin, coin_to: Coin, amount: float, fees_graph: FeesGraph) -> bool:
         """
-        Check if the portfolio has enough of coin_from to execute a trade for the specified amount (including fees).
+        Check if the portfolio has enough of coin_from to execute a trade for the specified amount.
 
         Args:
-            coin_from (str): The coin to be spent.
-            coin_to (str): The coin to be acquired.
-            amount (float): The amount of coin_from required for the trade (including fees).
+            coin_from (str): The coin to be spent/sold.
+            coin_to (str): The coin to be acquired/bought.
+            amount (float): For buying: the cost in coin_from. For selling: the amount of coin_from to sell.
             fees_graph (FeesGraph): The fee structure for trades.
 
         Returns:
             bool: True if the trade can be executed, False otherwise.
         """
+
+        
         if coin_from not in self.positions:
             return False
         
         fee_rate = get_fee_for_trade(coin_from, coin_to, fees_graph)
-        required_amount = amount * (1 + fee_rate)
+        
+        # Determine if this is a buy or sell operation based on coin types
+        # If coin_from is EURC, we're buying (spending EURC to get another coin)
+        # If coin_from is not EURC, we're selling (selling coin_from for EURC)
+        if coin_from == 'EURC':
+            # Buying: need amount + fees in EURC
+            required_amount = amount * (1 + fee_rate)
+        else:
+            # Selling: only need the exact amount we want to sell
+            # Fees are deducted from proceeds, not added to required amount
+            required_amount = amount
+        
         return self.positions[coin_from] >= required_amount
  
     def update_position(self, coin: Coin, amount: float) -> None:

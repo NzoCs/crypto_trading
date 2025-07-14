@@ -34,7 +34,7 @@ if PROJECT_ROOT not in sys.path:
 
 import argparse
 import json
-from prediction_model.model_manager import ModelManager
+from prediction_models.model_manager import ModelManager
 
 import numpy as np
 def to_serializable(obj):

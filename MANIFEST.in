@@ -1,0 +1,14 @@
+include README.md
+include LICENCE
+include DOCUMENTATION.md
+include requirements.txt
+include Makefile
+recursive-include src *.py
+recursive-include tests *.py
+recursive-include docs *.md *.png *.yml *.yaml
+recursive-include examples *.py *.ipynb
+recursive-include datasets *.csv *.parquet *.json
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude * .DS_Store
+global-exclude *.pyc
