@@ -1,4 +1,4 @@
-from feature_extraction.base import BaseFeature
+from ..base import BaseFeature
 import pandas as pd
 
 class VolumeFeature(BaseFeature):

@@ -1,5 +1,6 @@
 # Data folders and files
 datasets/
+data/
 *.csv
 *.parquet
 *.h5

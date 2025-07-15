@@ -1,8 +1,8 @@
-from feature_extraction.base import BaseFeature
+from ..base import BaseFeature
 import pandas as pd
 import numpy as np
 
-from feature_extraction.base import BaseFeature
+from ..base import BaseFeature
 import pandas as pd
 import numpy as np
 
