@@ -13,14 +13,11 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Topic :: Office/Business :: Financial",
     "Topic :: Scientific/Engineering :: Artificial Intelligence"
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 dependencies = [
     "numpy>=2.2.0",
     "pandas>=2.2.0",
@@ -30,17 +27,19 @@ dependencies = [
     "seaborn>=0.13.0",
     "xgboost>=3.0.0",
     "joblib>=1.5.0",
-    "pyarrow>=20.0.0",
+    "pyarrow>=21.0.0",
     "fastparquet>=2024.11.0",
     "ipython>=9.3.0",
     "jupyter-client>=8.6.0",
-    "ipykernel>=6.29.0"
+    "ipykernel>=6.29.0",
+    "tqdm>=4.67.1",
+    "rich>=14.1.0",
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest>=8.4.0",
-    "pytest-cov>=4.0.0",
+    "pytest-cov>=6.2.1",
     "black>=23.0.0",
     "flake8>=6.0.0",
     "isort>=5.12.0",
@@ -53,7 +52,7 @@ docs = [
 ]
 test = [
     "pytest>=8.4.0",
-    "pytest-cov>=4.0.0",
+    "pytest-cov>=6.2.1",
     "pytest-mock>=3.10.0"
 ]
 

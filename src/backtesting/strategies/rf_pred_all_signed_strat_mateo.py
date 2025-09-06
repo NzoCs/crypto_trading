@@ -21,7 +21,7 @@ class RFPredAllSignedStratMateo(Strategy):
 
     def __init__(self, window_size=5):
         super().__init__()
-        self.model = joblib.load(f"predictors/mateo/rf_model_{window_size}ms.joblib")
+        self.model = joblib.load(f"models/mateo/rf_model_{window_size}ms.joblib")
         self.target_eth = 100.0
 
 

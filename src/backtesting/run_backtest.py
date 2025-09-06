@@ -41,7 +41,7 @@ import pandas as pd
 
 # Add project root to path
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, '..'))
+PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, '..', '..'))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
@@ -88,32 +88,31 @@ def discover_strategies():
     Returns:
         Dict mapping strategy names to their classes
     """
-    strategies_dir = os.path.join(PROJECT_ROOT, 'strategies')
     strategy_classes = {}
     
-    # Import all strategy files and extract Strategy classes
-    for py_file in Path(strategies_dir).glob('*.py'):
-        if py_file.name.startswith('__'):
-            continue
+    # Import strategies using the package structure
+    strategy_modules = [
+        'src.backtesting.strategies.trend_following',
+        'src.backtesting.strategies.momentum_strategy', 
+        'src.backtesting.strategies.mateo_2_start',
+        'src.backtesting.strategies.rf_pred_all_signed_strat_mateo',
+        'src.backtesting.strategies.linear_regression'
+    ]
+    
+    for module_name in strategy_modules:
+        try:
+            module = importlib.import_module(module_name)
             
-        module_name = py_file.stem
-        spec = importlib.util.spec_from_file_location(module_name, py_file)
-        
-        if spec and spec.loader:
-            try:
-                module = importlib.util.module_from_spec(spec)
-                spec.loader.exec_module(module)
-                
-                # Find all Strategy subclasses in the module
-                for attr_name in dir(module):
-                    attr = getattr(module, attr_name)
-                    if (isinstance(attr, type) and 
-                        issubclass(attr, Strategy) and 
-                        attr != Strategy):
-                        strategy_classes[attr_name] = attr
-                        
-            except Exception as e:
-                print(f"Warning: Could not load strategies from {py_file}: {e}")
+            # Find all Strategy subclasses in the module
+            for attr_name in dir(module):
+                attr = getattr(module, attr_name)
+                if (isinstance(attr, type) and 
+                    issubclass(attr, Strategy) and 
+                    attr != Strategy):
+                    strategy_classes[attr_name] = attr
+                    
+        except Exception as e:
+            print(f"Warning: Could not load strategies from {module_name}: {e}")
     
     return strategy_classes
 

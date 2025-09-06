@@ -40,7 +40,7 @@ class TFCumulativeReturnStrategy(Strategy):
                 - {"ETH": 0} for hold
         """
         
-        cumulative_return = data["ETH"][f"return-vs-volatility-{self.window_size}-ms"].iloc[-1].values[0]
+        cumulative_return = data["ETH"][f"return-vs-volatility-{self.window_size}-ms"].iloc[-1]
         
         return {"ETH": 0.1 * cumulative_return}
 
@@ -79,7 +79,7 @@ class TFSharpeRatioStrategy(Strategy):
                 - {"ETH": 0} for hold
         """
         
-        sharpe_ratio = data["ETH"].iloc[-1][[f"sharpe-ratio-quantile-calibrated-{self.window_size}-ms"]].values[0]
+        sharpe_ratio = data["ETH"].iloc[-1][[f"sharpe-ratio-quantile-calibrated-{self.window_size}-ms"]].iloc[0]
         
         return {"ETH": 0.1 * sharpe_ratio}
 
@@ -117,7 +117,7 @@ class TFImbalanceStrategy(Strategy):
                 - {"ETH": 0} for hold
         """
         
-        imbalance = data["ETH"].iloc[-1][[f"bid-ask-imbalance-{self.levels}-levels"]].values[0]
+        imbalance = data["ETH"].iloc[-1][[f"bid-ask-imbalance-{self.levels}-levels"]].iloc[0]
         
         if imbalance > 0.7:
             return {"ETH": 0.1}

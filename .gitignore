@@ -23,6 +23,7 @@ __pycache__/
 *.so
 .ipynb_checkpoints
 */.ipynb_checkpoints
+*/ifcob.egg-info/
 
 # Virtual environments
 .venv/
