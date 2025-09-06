@@ -4,7 +4,7 @@ Test strategy functionality for the backtesting module.
 import pytest
 import pandas as pd
 from abc import ABC
-from src.backtesting.strategy import Strategy
+from backtesting.base_strategy import Strategy
 from src.backtesting.portfolio import Portfolio
 from src.backtesting.types import MarketData, Action, FeesGraph
 from tests.backtesting.test_types import create_sample_market_data, create_sample_fees_graph

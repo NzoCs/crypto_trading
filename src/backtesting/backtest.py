@@ -1,5 +1,5 @@
-from .types import OrderBookDataLoader, MarketData, Coin, TimeStep, Action, FeesGraph
-from .strategy import Strategy
+from .backtest_types import OrderBookDataLoader, MarketData, Coin, TimeStep, Action, FeesGraph
+from .base_strategy import Strategy
 from .portfolio import Portfolio, estimate_price, get_fee_for_trade
 from .order_processor import OrderProcessor
 import pandas as pd

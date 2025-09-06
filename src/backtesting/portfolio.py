@@ -1,4 +1,4 @@
-from .types import Coin, MarketData, OrderBookData, FeesGraph
+from .backtest_types import Coin, MarketData, OrderBookData, FeesGraph
 from typing import Dict
 
 

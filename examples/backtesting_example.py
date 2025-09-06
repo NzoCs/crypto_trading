@@ -4,7 +4,7 @@ This demonstrates the complete backtesting system as per the consulting-style de
 """
 
 from backtesting.types import MarketData, Action, FeesGraph
-from backtesting.strategy import Strategy
+from backtesting.base_strategy import Strategy
 from backtesting.portfolio import Portfolio
 from backtesting.backtest import Backtester, BacktestConfig
 from backtesting.dataloader import OrderBookDataFromDf

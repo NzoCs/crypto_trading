@@ -42,7 +42,7 @@ import os
 from typing import List, Optional
 import pandas as pd
 
-from feature_extraction.feature_generator import (
+from src.data_processing.feature_extraction.feature_generator import (
     FeatureGenerator, 
     load_and_generate_features, 
     save_features,

@@ -29,7 +29,7 @@ from datetime import datetime
 project_root = Path(__file__).parent.parent
 sys.path.append(str(project_root))
 
-from preprocessing import preprocess_crypto_data, preprocess_data_folder
+from src.data_processing.preprocessing import preprocess_crypto_data, preprocess_data_folder
 
 
 class DataPreprocessor:

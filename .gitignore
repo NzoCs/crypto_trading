@@ -8,6 +8,9 @@ data/
 *.pkl
 *.pickle
 
+# Model files
+artefacts/
+
 # Python cache and temp files
 **/__pycache__
 */__pycache__

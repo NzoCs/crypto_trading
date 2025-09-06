@@ -22,7 +22,7 @@ import joblib
 import numpy as np
 import pandas as pd
 from typing import Dict, Any, Optional, Tuple
-from preprocessing.data_preprocess import DataPreprocessor
+from prediction_models.data_loader import DataPreprocessor
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from sklearn.utils.class_weight import compute_class_weight

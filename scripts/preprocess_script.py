@@ -23,7 +23,7 @@ from pathlib import Path
 # Add current directory to path to allow imports
 sys.path.append(str(Path(__file__).parent))
 
-from data_preprocessor import preprocess_data_folder, preprocess_crypto_data
+from data_processing.feature_extraction.data_preprocessor import preprocess_data_folder, preprocess_crypto_data
 
 
 def main():
