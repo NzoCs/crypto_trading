@@ -69,7 +69,6 @@ ifcob-features = "scripts.generate_features:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["*"]
 
 [tool.setuptools.package-dir]
 "" = "src"

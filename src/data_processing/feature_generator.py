@@ -18,7 +18,7 @@ from abc import ABC, abstractmethod
 import warnings
 
 # Import our custom types
-from .types import (
+from data_processing.types import (
     RawData,
     CleanedData,
     Feature,
@@ -34,8 +34,8 @@ from .types import (
     Side
 )
 
-from .base_feature import BaseFeature
-from .feature_registry import FeatureRegistryMeta
+from data_processing.base_feature import BaseFeature
+from data_processing.feature_registry import FeatureRegistryMeta
 
 # Note: Feature auto-registration is now handled by the __init__.py file
 # when the feature_extraction module is imported. All features are 

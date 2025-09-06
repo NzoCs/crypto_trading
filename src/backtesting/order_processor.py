@@ -1,5 +1,5 @@
-from .backtest_types import OrderBookDataLoader, Coin, TimeStep, FeesGraph
-from .portfolio import Portfolio, estimate_price, get_fee_for_trade
+from backtesting.backtest_types import OrderBookDataLoader, Coin, TimeStep, FeesGraph
+from backtesting.portfolio import Portfolio, estimate_price, get_fee_for_trade
 import pandas as pd
 from typing import Dict, Optional
 

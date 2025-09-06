@@ -1,4 +1,4 @@
-from ..base_feature import BaseFeature
+from data_processing.base_feature import BaseFeature
 import pandas as pd
 import numpy as np
 

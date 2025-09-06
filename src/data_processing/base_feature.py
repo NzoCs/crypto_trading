@@ -3,7 +3,7 @@ from typing import Any
 import pandas as pd
 
 # Import our custom types
-from .types import (
+from data_processing.types import (
     CleanedData,
     Feature,
     FeatureName,
@@ -12,7 +12,7 @@ from .types import (
 )
 
 # Import the registry metaclass
-from .feature_registry import FeatureRegistryMeta
+from data_processing.feature_registry import FeatureRegistryMeta
 
 
 class BaseFeature(ABC, metaclass=FeatureRegistryMeta):

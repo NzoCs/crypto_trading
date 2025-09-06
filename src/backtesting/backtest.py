@@ -1,7 +1,7 @@
-from .backtest_types import OrderBookDataLoader, MarketData, Coin, TimeStep, Action, FeesGraph
-from .base_strategy import Strategy
-from .portfolio import Portfolio, estimate_price, get_fee_for_trade
-from .order_processor import OrderProcessor
+from backtesting.backtest_types import OrderBookDataLoader, MarketData, Coin, TimeStep, Action, FeesGraph
+from backtesting.base_strategy import Strategy
+from backtesting.portfolio import Portfolio, estimate_price, get_fee_for_trade
+from backtesting.order_processor import OrderProcessor
 import pandas as pd
 from typing import Dict, List, Tuple, Optional
 import numpy as np

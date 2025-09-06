@@ -13,7 +13,7 @@ Key type aliases:
 - CleanedData: Preprocessed order book data (pandas DataFrame)
 """
 
-from .types import (
+from data_processing.types import (
     # Core data types
     RawData,
     Feature,
