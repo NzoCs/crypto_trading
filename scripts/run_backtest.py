@@ -27,7 +27,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from backtesting.backtest import Backtester, BacktestResult, BacktestConfig
 from backtesting.base_strategy import Strategy
-from backtesting.backtest_types import Coin, FeesGraph
+from backtesting.types import Coin, FeesGraph
 from backtesting.dataloader import OrderBookDataFromDf
 
 
@@ -136,10 +136,21 @@ class BacktestRunner:
         dataloader = OrderBookDataFromDf(sources)
         
         # Create simple fees graph (you can customize this)
-        fees_graph = FeesGraph(
-            maker_fee=0.001,  # 0.1% maker fee
-            taker_fee=0.002   # 0.2% taker fee
-        )
+        fee_rate = 0.001  # 0.1% fee
+        fees_graph = {
+            'EURC': [
+                ('XBT', fee_rate),
+                ('ETH', fee_rate),
+            ],
+            'XBT': [
+                ('EURC', fee_rate),
+                ('ETH', fee_rate),
+            ],
+            'ETH': [
+                ('EURC', fee_rate),
+                ('XBT', fee_rate),
+            ]
+        }
         
         # Create backtest config
         config = BacktestConfig(

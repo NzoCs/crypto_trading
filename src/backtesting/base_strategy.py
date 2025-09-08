@@ -1,4 +1,4 @@
-from backtesting.backtest_types import MarketData, Coin, Action, FeesGraph
+from backtesting.types import MarketData, Coin, Action, FeesGraph
 from backtesting.portfolio import Portfolio
 from abc import ABC, abstractmethod
 

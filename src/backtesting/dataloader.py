@@ -1,4 +1,4 @@
-from backtesting.backtest_types import OrderBookDataLoader, Coin, Filepath, MarketData, TimeStep
+from backtesting.types import OrderBookDataLoader, Coin, Filepath, MarketData, TimeStep
 import pandas as pd
 import numpy as np
 

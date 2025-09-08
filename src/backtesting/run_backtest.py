@@ -46,7 +46,7 @@ if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
 # Import backtesting components
-from src.backtesting.backtest_types import MarketData, Action, FeesGraph
+from backtesting.types import MarketData, Action, FeesGraph
 from src.backtesting.base_strategy import Strategy
 from src.backtesting.portfolio import Portfolio
 from src.backtesting.backtest import Backtester, BacktestConfig

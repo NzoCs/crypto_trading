@@ -1,6 +1,6 @@
 from backtesting.base_strategy import Strategy
-from src.backtesting.backtest_types import MarketData, Action, FeesGraph
-from src.backtesting.portfolio import Portfolio
+from backtesting.types import MarketData, Action, FeesGraph
+from backtesting.portfolio import Portfolio
 import pandas as pd
 
 
